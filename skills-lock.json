@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": "skills/skill-creator/SKILL.md",
       "computedHash": "5ea13a6d9f0d4bb694405d79acd00cadec0d21bb138c4dd10fcf3c500cb835c2"
+    },
+    "slidev": {
+      "source": "slidevjs/slidev",
+      "sourceType": "github",
+      "skillPath": "skills/slidev/SKILL.md",
+      "computedHash": "a495cfada5d3b29c66c2fbbccb4ef9887d6b12bd7e440d100deea89e529c1a7b"
     }
   }
 }
