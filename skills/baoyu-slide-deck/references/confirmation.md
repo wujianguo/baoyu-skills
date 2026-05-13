@@ -4,27 +4,27 @@ Concrete option copy for the confirmation steps. SKILL.md lists which questions 
 
 ## Round 1 (Always)
 
-Batch all five questions in a single `AskUserQuestion` call.
+Batch all four questions in a single `AskUserQuestion` call.
 
-### Q1: Style
+### Q1: Theme
 
 ```yaml
-header: Style
-question: Which visual style for this deck?
+header: Theme
+question: Which Slidev theme for this deck?
 options:
-  - label: "{recommended_preset} (Recommended)"
+  - label: "{recommended_theme} (Recommended)"
     description: Best match based on content analysis
-  - label: "{alternative_preset}"
-    description: "{alternative style description}"
-  - label: Custom dimensions
-    description: Choose texture, mood, typography, density separately
+  - label: "{alternative_theme}"
+    description: "{alternative theme description}"
+  - label: default
+    description: Clean and minimal, general purpose
 ```
 
 ### Q2: Audience
 
 ```yaml
 header: Audience
-question: Who is the primary reader?
+question: Who is the primary audience?
 options:
   - label: General readers (Recommended)
     description: Broad appeal, accessible content
@@ -54,126 +54,26 @@ options:
 
 ```yaml
 header: Outline
-question: Review outline before generating prompts?
+question: Review outline before generating slides?
 options:
   - label: Yes, review outline (Recommended)
     description: Review slide titles and structure
   - label: No, skip outline review
-    description: Proceed directly to prompt generation
-```
-
-### Q5: Review Prompts
-
-```yaml
-header: Prompts
-question: Review prompts before generating images?
-options:
-  - label: Yes, review prompts (Recommended)
-    description: Review image generation prompts
-  - label: No, skip prompt review
-    description: Proceed directly to image generation
-```
-
-## Round 2 — Custom Dimensions
-
-Triggered only when Q1 of Round 1 = "Custom dimensions". Batch all four dimension questions.
-
-### Texture
-
-```yaml
-header: Texture
-question: Which visual texture?
-options:
-  - label: clean
-    description: Pure solid color, no texture
-  - label: grid
-    description: Subtle grid overlay, technical
-  - label: organic
-    description: Soft textures, hand-drawn feel
-  - label: pixel
-    description: Chunky pixels, 8-bit aesthetic
-```
-
-`paper` is also valid — accept via "Other".
-
-### Mood
-
-```yaml
-header: Mood
-question: Which color mood?
-options:
-  - label: professional
-    description: Cool-neutral, navy/gold
-  - label: warm
-    description: Earth tones, friendly
-  - label: cool
-    description: Blues, grays, analytical
-  - label: vibrant
-    description: High saturation, bold
-  - label: macaron
-    description: Pastel blocks on cream
-```
-
-`dark`, `neutral` valid via "Other".
-
-### Typography
-
-```yaml
-header: Typography
-question: Which typography style?
-options:
-  - label: geometric
-    description: Modern sans-serif, clean
-  - label: humanist
-    description: Friendly, readable
-  - label: handwritten
-    description: Marker/brush, organic
-  - label: editorial
-    description: Magazine style, dramatic
-```
-
-`technical` valid via "Other".
-
-### Density
-
-```yaml
-header: Density
-question: Information density?
-options:
-  - label: balanced (Recommended)
-    description: 2-3 key points per slide
-  - label: minimal
-    description: One focus point, maximum whitespace
-  - label: dense
-    description: Multiple data points, compact
+    description: Proceed directly to slide generation
 ```
 
 ## Outline Review (Step 4)
 
 ```yaml
 header: Confirm
-question: Ready to generate prompts?
+question: Ready to generate slides.md?
 options:
   - label: Yes, proceed (Recommended)
-    description: Generate image prompts
+    description: Generate Slidev markdown
   - label: Edit outline first
     description: I'll modify outline.md before continuing
   - label: Regenerate outline
     description: Create new outline with different approach
-```
-
-## Prompt Review (Step 6)
-
-```yaml
-header: Confirm
-question: Ready to generate slide images?
-options:
-  - label: Yes, proceed (Recommended)
-    description: Generate all slide images
-  - label: Edit prompts first
-    description: I'll modify prompts before continuing
-  - label: Regenerate prompts
-    description: Create new prompts with different approach
 ```
 
 ## Existing Content (Step 1.3)
@@ -183,9 +83,9 @@ header: Existing
 question: Existing content found. How to proceed?
 options:
   - label: Regenerate outline
-    description: Keep images, regenerate outline only
-  - label: Regenerate images
-    description: Keep outline, regenerate images only
+    description: Keep slides.md, regenerate outline only
+  - label: Regenerate slides
+    description: Keep outline, regenerate slides.md only
   - label: Backup and regenerate
     description: Backup to {slug}-backup-{timestamp}, then regenerate all
   - label: Exit
